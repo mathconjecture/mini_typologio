@@ -138,12 +138,13 @@
     \fancyfootoffset[LE,RO]{10mm}
     \rfoot[]{\thepage}
     \lfoot[\thepage]{}
-    \rhead[]{\tikz[remember picture,overlay]{\node[rotate=90,anchor=east] (text) at ([shift={(-5mm,-8mm)}]current page.north east) {\textcolor{Col\thechapter}{\small\strut\leftmark}};
-    \fill[Col\thechapter] ([xshift={-2.5mm}]text.east) rectangle++(5mm,5mm);
-    }}
+    \rhead[]{}
+    %\rhead[]{\tikz[remember picture,overlay]{\node[rotate=90,anchor=east] (text) at ([shift={(-5mm,-8mm)}]current page.north east) {\textcolor{Col\thechapter}{\small\strut\leftmark}};
+    %\fill[Col\thechapter] ([xshift={-2.5mm}]text.east) rectangle++(5mm,5mm);
+    %}}
     % \lhead[\textcolor{Col\thechapter}{\leftmark}]{}
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[space]{grffile}
 
@@ -307,8 +308,20 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}{0ex}{}
 \makeatother
 
 
-%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
- \usepackage[printwatermark]{xwatermark} 
- \newwatermark[allpages,color=Col2!10,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
+% \usepackage[printwatermark]{xwatermark} 
+% \newwatermark[allpages,color=Col2!10,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \usepackage[printwatermark]{xwatermark}
+ \newsavebox\mybox
+ \savebox\mybox{\tikz[color=Col2!40,opacity=0.4]\node{ΠΡΟΣΗΜΟ};}
+ \newwatermark*[
+   allpages,
+   angle=45,
+   scale=12,
+   xpos=-40,
+   ypos=40
+ ]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

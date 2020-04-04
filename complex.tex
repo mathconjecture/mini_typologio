@@ -12,7 +12,7 @@
             \draw[-stealth] (0,0) node (O) {} -- (2.2,0) node[right] {$\Re$} ;
             \draw[-stealth] (0,0) -- (0,2.2) node[left] {$\Im$} ;
             \fill[Col\thechapter] (1.4,1.4) node[dot] (p) {} 
-                node[above right,font=\small] {$z=a+bi$} ;
+                node[above right,font=\small,xshift=-5pt] {$z=a+bi$} ;
             \draw[Col\thechapter] (0,0)  edge node[pos=0.6,left=2pt] 
                 {$\abs{z}$} (p) ; 
             \draw[dashed,Col\thechapter] (O|-p) node[left]{$b$} -- (p) -- (p|-O) 
@@ -32,9 +32,9 @@
             \draw[-stealth] (0,0) -- (0,1.5) node[left] {$\Im$} ;
             \draw (0,0) -- (0,-1.5) ;
             \fill[Col\thechapter] (1.4,0.8) node[dot] (p) {} 
-                node[above right,font=\small] {$z=a+bi$} ;
+                node[above right,font=\small,xshift=-5pt] {$z=a+bi$} ;
             \fill[Col\thechapter] (1.4,-0.8) node[dot] (q) {} 
-                node[below right,font=\small] {$\overline{z} =a-bi$} ;
+                node[below right,font=\small,xshift=-5pt] {$\overline{z} =a-bi$} ;
             \draw[Col\thechapter] (0,0)  edge  (p) ; 
             \draw[Col\thechapter] (0,0)  edge  (q) ; 
             \draw[dashed,Col\thechapter] (O|-p) node[left]{$b$} -- (p) -- (p|-O) 
