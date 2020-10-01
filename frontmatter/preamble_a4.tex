@@ -3,6 +3,7 @@
 \usepackage{etex}
 \usepackage{etoolbox}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Babel language package
 %\usepackage[english,greek]{babel}
@@ -16,42 +17,42 @@
 
 %\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
 %\usepackage[T1]{fontenc}
-\usepackage{ifxetex}
-\ifxetex
+% \usepackage{ifxetex}
+% \ifxetex
     % IF XELATEX
 
 % MINION new font
 \usepackage{fontspec}
-% \usepackage{libertine}
+\usepackage{libertine}
 % \usepackage{mathspec}
 
 \setmainfont[Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-Bold-Italic]{Minion-Pro}
 \setsansfont[Extension=.ttf,UprightFont=*H,BoldFont=*HB,ItalicFont=*HI,BoldItalicFont=*HBI]{Vera}
 
-%\usepackage{unicode-math}
-%\setmathfont{Minion-Pro-Regular.ttf}
-%\setmathfont[range=\mathup]{Minion-Pro-Regular.ttf}
-%\setmathfont[range=\mathit]{Minion-Pro-Italic.ttf}
-%\setmathfont[range=\mathbf]{Minion-Pro-Bold.ttf}
-%\setmathfont[range={0222B}]{Minion-Pro-Italic.ttf}
-%\setmathfontface\mathfoo{Minion-Pro-Regular.ttf}
-%\setoperatorfont\mathfoo
-    \usepackage{polyglossia}
-    \setdefaultlanguage{greek}
-    \setotherlanguage{english}
-    % \RequirePackage{unicode-math}
-    % \setmathfont{Latin Modern Math}
-    % \newcommand{\smblkcircle}{•}
-\else
-    % IF PDFLATEX
-    %\usepackage{tgheros}
-    %\renewcommand*\familydefault{\sfdefault}
-    %\usepackage[eulergreek]{sansmath}
-    %\sansmath
-    \usepackage[T1]{fontenc}
-    \usepackage[utf8]{inputenc}
-    \usepackage[english,greek]{babel}
-\fi
+%%\usepackage{unicode-math}
+%%\setmathfont{Minion-Pro-Regular.ttf}
+%%\setmathfont[range=\mathup]{Minion-Pro-Regular.ttf}
+%%\setmathfont[range=\mathit]{Minion-Pro-Italic.ttf}
+%%\setmathfont[range=\mathbf]{Minion-Pro-Bold.ttf}
+%%\setmathfont[range={0222B}]{Minion-Pro-Italic.ttf}
+%%\setmathfontface\mathfoo{Minion-Pro-Regular.ttf}
+%%\setoperatorfont\mathfoo
+%    \usepackage{polyglossia}
+%    \setdefaultlanguage{greek}
+%    \setotherlanguage{english}
+%    % \RequirePackage{unicode-math}
+%    % \setmathfont{Latin Modern Math}
+%    % \newcommand{\smblkcircle}{•}
+%\else
+%    % IF PDFLATEX
+%    %\usepackage{tgheros}
+%    %\renewcommand*\familydefault{\sfdefault}
+%    %\usepackage[eulergreek]{sansmath}
+%    %\sansmath
+%    \usepackage[T1]{fontenc}
+%    \usepackage[utf8]{inputenc}
+%    \usepackage[english,greek]{babel}
+%\fi
 
 
 \usepackage{anyfontsize}
@@ -67,6 +68,7 @@
 \renewcommand{\LARGE}       {\fontsize{1.6\FONTmain}{1.6\FONTmainbl}\selectfont}
 \renewcommand{\huge}        {\fontsize{1.8\FONTmain}{1.8\FONTmainbl}\selectfont}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[table,RGB]{xcolor}
 
@@ -74,12 +76,11 @@
 \geometry{a4paper,top=5mm,bottom=5mm,left=5mm,right=5mm}
 \setlength{\parindent}{0pt}
 
-
+\usepackage[intlimits]{amsmath}
 %\usepackage{extsizes}
 \usepackage{multicol}
 
 %%%%% math packages %%%%%%%%%%%%%%%%%%
-\usepackage[intlimits]{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -90,6 +91,7 @@
 \usepackage[italicdiff]{physics}
 \usepackage{siunitx}
 \usepackage{xfrac}
+
 
 %%%%%%% symbols packages %%%%%%%%%%%%%%
 \usepackage{bm} %for use \bm instead \boldsymbol in math mode
@@ -121,30 +123,38 @@
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{decorations.pathreplacing} 
 \usetikzlibrary{decorations.markings,patterns}
+
 \usepackage{pgfplots}
-
-
-\pgfplotsset{compat=1.10}
+\pgfplotsset{compat=1.17}
 \usepgfplotslibrary{fillbetween}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
 
-\tikzset{dot/.style={ draw, fill, circle, inner sep=1pt, minimum size=3pt }}
-\usepackage{fancyhdr}
-%%%%% header and footer rule %%%%%%%%%
-%\setlength{\headheight}{14pt}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\fancypagestyle{plain}{\fancyhf{}\rfoot{}\rhead{}}
-\fancypagestyle{vangelis}{\fancyhf{}
-    \fancyfootoffset[LE,RO]{10mm}
-    \rfoot[]{\thepage}
-    \lfoot[\thepage]{}
-    \rhead[]{}
-    %\rhead[]{\tikz[remember picture,overlay]{\node[rotate=90,anchor=east] (text) at ([shift={(-5mm,-8mm)}]current page.north east) {\textcolor{Col\thechapter}{\small\strut\leftmark}};
-    %\fill[Col\thechapter] ([xshift={-2.5mm}]text.east) rectangle++(5mm,5mm);
-    %}}
-    % \lhead[\textcolor{Col\thechapter}{\leftmark}]{}
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \pgfplotsset{compat=1.10}
+% \usepgfplotslibrary{fillbetween}
+
+\tikzset{dot/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
+
+%\usepackage{fancyhdr}
+%%%%%% header and footer rule %%%%%%%%%
+%%\setlength{\headheight}{14pt}
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+%\fancypagestyle{plain}{\fancyhf{}\rfoot{}\rhead{}}
+%\fancypagestyle{vangelis}{\fancyhf{}
+%    \fancyfootoffset[LE,RO]{}
+%    \rfoot[]{\thepage}
+%    \lfoot[\thepage]{}
+%    \rhead[]{}
+%    %\rhead[]{\tikz[remember picture,overlay]{\node[rotate=90,anchor=east] (text) at ([shift={(-5mm,-8mm)}]current page.north east) {\textcolor{Col\thechapter}{\small\strut\leftmark}};
+%    %\fill[Col\thechapter] ([xshift={-2.5mm}]text.east) rectangle++(5mm,5mm);
+%    %}}
+%    % \lhead[\textcolor{Col\thechapter}{\leftmark}]{}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[space]{grffile}
 
@@ -177,6 +187,7 @@
 \definecolor{Col6}{rgb}{0.0, 0.55, 0.55}
 \definecolor{Col7}{rgb}{0.74, 0.2, 0.64}
 \definecolor{Col8}{rgb}{0.0, 0.55, 0.55}
+\definecolor{Col9}{rgb}{0.74, 0.2, 0.64}
 
 \everymath{\displaystyle}
 
@@ -193,20 +204,29 @@
 % corners,boxrule=0pt]\centering\huge\bfseries\textcolor{white}{#1}\end{tcolorbox}}{0pt}{\markboth{#1}}[\clearpage]
 % \titlespacing*{\chapter}{0cm}{6\baselineskip}{0\baselineskip}[0ex]
 
-% Section
-\titleformat{\chapter}[hang]{\pagestyle{plain}\large\bfseries\centering}{\begin{tcolorbox}[colback=Col\thechapter,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
-corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}{0ex}{}[]
-\titlespacing*{\chapter}{0cm}{0ex}{0\baselineskip}[0ex]
+% Chapter
+\titleformat{\chapter}[hang]
+{\large\bfseries\centering}
+{\begin{tcolorbox}[colback=Col\thechapter,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
+corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
+{0ex}{}[]
+\titlespacing*{\chapter}{0cm}{0ex}{0ex}[0ex]
 
 % Section
-\titleformat{\section}[hang]{\pagestyle{plain}\bfseries\centering}{\begin{tcolorbox}[colback=Col\thechapter!75,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
-corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}{0ex}{}[]
+\titleformat{\section}[hang]
+{\bfseries\centering}
+{\begin{tcolorbox}[colback=Col\thechapter!75,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
+corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
+{0ex}{}[]
 \titlespacing*{\section}{0cm}{0ex}{0ex}[0ex]
 
 % subsection
-\titleformat{\subsection}[hang]{\pagestyle{plain}\normalsize\bfseries\centering}{\begin{tcolorbox}[colback=Col\thechapter!50!white,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
-corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}{0ex}{}
+\titleformat{\subsection}[hang]
+{\normalsize\bfseries\centering}
+{\begin{tcolorbox}[colback=Col\thechapter!50!white,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
+{0ex}{}[]
 \titlespacing*{\subsection}{0cm}{0ex}{0ex}[0ex] 
+
 % % Subsubsection
 % \titleformat{\subsubsection}[hang]{\normalsize\bfseries\centering}{}{0ex}{\color{Col\thechapter!55}{#1}}{}
 % \titlespacing*{\subsubsection}{0cm}{\baselineskip}{\baselineskip}[0ex]
@@ -223,7 +243,6 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}{0ex}{}
 
 
 % \AtBeginDocument{\pagestyle{vangelis}\normalsize\raggedright}
-
 
 \newcommand{\twocolumnside}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
 #1
@@ -302,7 +321,8 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}{0ex}{}
 
 }
 
-%chapter starts on same page for report and book class with etoolbox package
+%%chapter starts on same page for report and book class with etoolbox package
+
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
 \makeatother
@@ -314,14 +334,35 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}{0ex}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
  \usepackage[printwatermark]{xwatermark}
  \newsavebox\mybox
- \savebox\mybox{\tikz[color=Col2!40,opacity=0.4]\node{ΠΡΟΣΗΜΟ};}
+ \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
  \newwatermark*[
    allpages,
+   fontfamily=lmr,
+   fontseries=m,
    angle=45,
    scale=13,
    xpos=-45,
    ypos=40
  ]{\usebox\mybox} 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % \usepackage[printwatermark]{xwatermark}
+ % \newsavebox\mybox
+ % \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+ % \newwatermark*[
+ %   allpages,
+ %   fontfamily=lmr,
+ %   fontseries=m,
+ %   angle=45,
+ %   scale=12,
+ %   xpos=-40,
+ %   ypos=40,
+ % ]{\usebox\mybox} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -44,7 +44,7 @@
 \vspace{\baselineskip}
 \section{Ολοκλήρωση με Αντικατάσταση}
 \[
-    \int f(u) \,{du} = F(u)  \Rightarrow \! \int f(g(x))\cdot g'(x) \,{dx} =
+    \int f(u) \,{du} = F(u)  \Rightarrow \!\!\! \int f(g(x))\cdot g'(x) \,{dx} =
     F(g(x)) 
 \] 
 }{%
@@ -56,7 +56,7 @@
     and (2.7,1) ..  (3.6,2.2) node[above,black] (B){$f(x)$} ;
 \draw[dashed] (A) -- (A|-O) node[below]{$a$}  (B) -- (B|-O) node[below]{$b$};
 \path[name path=xaxis] (A|-O) -- (B|-O);
-\tikzfillbetween[of = curve and xaxis]{blue!10};
+\tikzfillbetween[of = curve and xaxis,on layer=bg]{blue!10};
 \draw (2,1.5) node (E) {$E$};
 \end{tikzpicture}
 \begin{equation*}
