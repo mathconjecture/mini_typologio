@@ -1,0 +1,100 @@
+\documentclass[~/Desktop/My_Projects/mini_typologio/main.tex]{subfiles}
+
+\usetikzlibrary{decorations.pathreplacing,}
+\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture]
+\node[outer sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
+
+% \section{Ορισμός του Ορίου}
+% \[
+% 	\lim_{x\to x_{0}} = l \overset{\text{ορ}}{\Leftrightarrow} 	
+%     \forall \varepsilon > 0,\, \exists \delta = \delta(\varepsilon) > 0 \, : \, 
+%     \abs{x-x_{0}} < \delta \Rightarrow \abs{f(x) - l} < \varepsilon.
+% \] 
+
+\twocolumnsides{
+\section{Ιδιότητες των Ορίων}
+\twocolumnsides{
+    \begin{itemize}
+	\item $ \lim_{x\to x_{0}} c = c $
+\end{itemize}
+}{
+\begin{itemize}
+    \item $ \lim_{x\to x_{0}} x = x_{0} $
+\end{itemize}
+}
+    \begin{itemize}
+      \item $ \lim_{x\to x_{0}} (f(x) \pm g(x)) = \lim_{x\to x_{0}} f(x) \pm 
+        \lim_{x\to x_{0}} g(x) $
+      \item $ \lim_{x\to x_{0}} (a \cdot f(x)) = a\cdot \lim_{x\to x_{0}} f(x) $
+    \item $ \smash{\lim_{x\to x_{0}}} (f(x) \cdot g(x)) = \smash{\lim_{x\to x_{0}}
+        f(x)} \cdot \smash{\lim_{x\to x_{0}} g(x)} $
+	\item $ \lim_{x\to x_{0}} \left(\frac{f(x)}{g(x)}\right) = 
+        \frac{\lim \limits_{x\to x_{0}} f(x)}{\smash{\lim\limits_{x\to x_{0}} g(x)}}, 
+        \quad \lim\limits_{x\to x_{0}} g(x) \neq 0 $
+    % \item $ \lim_{x\to x_{0}} \abs{f(x)} = \abs{\lim\limits_{x\to x_{0}} f(x)}  $
+    \item $ \lim_{x\to x_{0}} (f(x))^{n} = \Bigl(\lim\limits_{x\to x_{0}} f(x)
+        \Bigr) ^{n}, \quad  n\in \mathbb{N} $ 
+	\item $ \lim_{x\to x_{0}} \sqrt[n]{f(x)} = \sqrt[n]{\lim\limits_{x\to x_{0}} 
+    f(x)}, \quad n \in \mathbb{N^{*}} $
+\end{itemize}
+}{
+\section{Χρήσιμα Όρια}
+    \twocolumnsides{%
+    \begin{itemize}
+        \item $ \lim_{x \to \infty} \sqrt[x]{a} = 1,\, a>0 $
+        \item $ \lim_{x\to 0} \frac{\sin{x}}{x} = 1 $
+        \item $ \lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^{x}= e $
+\end{itemize}
+    }{%
+    \begin{itemize}
+        \item $ \lim_{x\to \infty} \sqrt[x]{x} = 1 $
+        \item $ \lim_{x\to \infty} \frac{\sin{x}}{x} = 0 $
+        \item $ \lim_{x \to \infty} \left(1 + \frac{a}{x}\right)^{x} = e^{a} $
+    \end{itemize}
+}
+
+\vspace{0.5\baselineskip}
+
+\section{Κανόνας L' H\^{o}pital}
+\centering
+$ \lim_{x\to x_{0}} \frac{f(x)}{g(x)}
+\overset{\strut(\frac{\infty}{\infty}) \, \text{ή} \, (\frac{0}{0})}{=} \lim_{x \to x_{0}} \frac{f'(x)}{g'(x)}  $
+
+\vspace{0.5\baselineskip}
+
+\section{Συνέχεια Συνάρτησης}
+\centering
+$f$ \textcolor{Col1}{συνεχής} στο $ x_{0} \Leftrightarrow \lim_{x\to x_{0}} f(x) =
+f(x_{0}) $
+}  
+
+
+\twocolumnsides{
+\section{Κριτήριο Παρεμβολής}
+\begin{minipage}[t]{0.62\textwidth}
+    \begin{enumerate}[label=(\roman*)]
+        \item $ f(x) \leq g(x) \leq h(x) $ \hfill \tikzmark{a} 
+        \item $ \lim_{x\to x_{0}} f(x) = \lim_{x\to x_{0}} h(x) = l$ \hfill \tikzmark{b}
+\end{enumerate}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=4pt}]
+	\draw[decorate,thick] (a.north east) -- (b.south east) node[midway,
+	right=0.1cm] {$\Rightarrow$}node[midway, right=0.5cm,text=black,text width = 2in,]
+    {$\; \lim_{x\to x_{0}} g(x) = l $};
+\end{tikzpicture}
+}{
+\section{Μηδενική επί Φραγμένη}
+\begin{minipage}[t]{0.40\textwidth}
+    \begin{enumerate}[label=(\roman*)]
+        \item $ \smash{\lim_{x\to x_{0}}} g(x) = 0 $ \hfill \tikzmark{a} 
+        \item $ f(x) $ φραγμένη  \hfill \tikzmark{b}
+\end{enumerate}
+\end{minipage}
+
+\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=4pt}]
+	\draw[decorate,thick] (a.north east) -- (b.south east) node[midway,
+	right=0.1cm] {$\Rightarrow$}node[midway, right=0.5cm,text=black,text width = 2in,]
+    {$\; \lim_{x\to x_{0}} (f(x) \cdot g(x)) = 0 $};
+\end{tikzpicture}
+}

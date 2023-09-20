@@ -1,0 +1,66 @@
+\documentclass[11pt]{report}
+\input{./frontmatter/preamble_a4.tex}
+\input{./frontmatter/definitions.tex}
+\input{tikz.tex}
+\input{myboxes.tex}
+
+
+
+\usepackage{subfiles} 
+% \pagestyle{vangelis}
+
+\setlist[itemize]{label=\textcolor{Col\thechapter!50}{\tiny$\blacksquare$},leftmargin=*}
+
+% \pagestyle{vangelis}
+
+\begin{document}
+
+\chapter{Χρήσιμες Ταυτότητες}
+\subfile{tautothtes.tex}
+
+\vspace{\baselineskip}
+
+\chapter{Διωνυμικό Ανάπτυγμα}
+\subfile{binomial.tex}
+
+\vspace{\baselineskip}
+
+\chapter{Όρια Συναρτήσεων}
+\subfile{limits.tex}
+
+\newpage
+
+\chapter{Μιγαδικοί Αριθμοί}
+\subfile{complex.tex}
+
+\newpage
+
+\chapter{Παράγωγοι}
+\subfile{derivatives.tex}
+
+\newpage
+
+\chapter{Ολοκληρώματα}
+\subfile{integrals.tex}
+
+\newpage
+
+\chapter{Τριγωνομετρία}
+\subfile{trig.tex}
+
+\newpage
+
+\chapter{Βασικές Συναρτήσεις}
+\subfile{graphs2.tex}
+
+\newpage
+
+\chapter{Τριγωνομετρικές Συναρτήσεις}
+\subfile{mytrig.tex}
+
+\newpage
+
+\chapter{Υπερβολικές Συναρτήσεις}
+\subfile{myhyper.tex}
+
+\end{document}

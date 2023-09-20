@@ -1,0 +1,161 @@
+\documentclass[~/Desktop/My_Projects/mini_typologio/main.tex]{subfiles}
+
+\twocolumnsides{
+    \section{Μέτρο Μιγαδικού Αριθμού}
+    \twocolumnsidesc{
+        \[
+            \abs{z}=\sqrt{a^2+b^2}
+        \] 
+        }{
+        \centering
+        \begin{tikzpicture}
+            \draw[-stealth] (0,0) node (O) {} -- (2.2,0) node[right] {$\Re$} ;
+            \draw[-stealth] (0,0) -- (0,2.2) node[left] {$\Im$} ;
+            \fill[Col\thechapter] (1.4,1.4) node[dot] (p) {} 
+                node[above right,font=\small,xshift=-5pt] {$z=a+bi$} ;
+            \draw[Col\thechapter] (0,0)  edge node[pos=0.6,left=3pt] 
+                {$\abs{z}$} (p) ; 
+            \draw[dashed,Col\thechapter] (O|-p) node[left]{$b$} -- (p) -- (p|-O) 
+                node[below]{$a$} ;
+        \end{tikzpicture}
+}}
+{
+    \section{Συζυγής Μιγαδικού Αριθμού}
+\twocolumnsidesc{
+        \[
+            \overline{z} = a - bi
+        \] 
+    }{
+        \centering
+        \begin{tikzpicture}
+            \draw[-stealth] (0,0) node (O) {} -- (2.2,0) node[right] {$\Re$} ;
+            \draw[-stealth] (0,0) -- (0,1.5) node[left] {$\Im$} ;
+            \draw (0,0) -- (0,-1.5) ;
+            \fill[Col\thechapter] (1.4,0.8) node[dot] (p) {} 
+                node[above right,font=\small,xshift=-5pt] {$z=a+bi$} ;
+            \fill[Col\thechapter] (1.4,-0.8) node[dot] (q) {} 
+                node[below right,font=\small,xshift=-5pt] {$\overline{z} =a-bi$} ;
+            % \draw[Col\thechapter] (0,0)  edge  (p) ; 
+            % \draw[Col\thechapter] (0,0)  edge  (q) ; 
+            \draw[dashed,Col\thechapter] (O|-p) node[left]{$b$} -- (p) -- (p|-O) 
+                node[below right]{$a$} ;
+            \draw[dashed,Col\thechapter] (O|-q) node[left]{$-b$} -- (q) -- (q|-O) 
+                node[below right]{$a$} ;
+    \end{tikzpicture}}}
+
+    \twocolumnsides{
+        \section{Ιδιότητες του Μέτρου}
+    \begin{itemize}
+        \item $\abs{z}\geq 0$ και $\abs{z}=0 \Leftrightarrow z=0$
+        \item $\abs{z}=\abs{-z}=\abs{\overline{z}}=\abs{-\overline{z}}$
+        \item $\abs{\abs{z_{1}}-\abs{z_{2}}}\leq\abs{z_{1}\pm z_{2}}\leq 
+          \abs{z_{1}}+\abs{z_{2}}$
+        \item $\abs{z_{1}\cdot z_{2}}=\abs{z_{1}}\cdot \abs{z_{2}}$
+        \item $\abs{\frac{z_{1}}{z_{2}}}=\frac{\abs{z_{1}}}{\abs{z_{2}}},\; 
+          z_{2}\neq 0$
+    \end{itemize}
+    }
+    {
+        \section{Ιδιότητες του Συζυγούς}
+        \twocolumnsidesl{
+            \begin{itemize}
+                \item $\overline{\overline{z}}=z$
+                \item $\overline{z_{1}+z_{2}}=\overline{z_{1}}+\overline{z_{2}}$
+                \item $\overline{z_{1}\cdot z_{2}}=\overline{z_{1}}
+                    \cdot\overline{z_{2}}$ 
+                \item $\overline{\left(\frac{z_{1}}{z_{2}}\right)}
+                    =\frac{\overline{z_{1}}}{\overline{z_{2}}}, \; z_{2}\neq 0$
+            \end{itemize} 
+            }{
+            \begin{itemize}
+                \item $z\cdot \overline{z}= \abs{z} ^{2} $
+                \item $z=\overline{z}\Leftrightarrow z\in\mathbb{R}$
+                \item $\Re z=\frac{z+\overline{z}}{2}$
+                \item $\Im z=\frac{z-\overline{z}}{2i}$
+    \end{itemize}}}
+
+    \vspace{\baselineskip}
+
+\twocolumnsides{
+    \section{Πράξεις Μιγαδικών Αριθμών}
+    Αν $ z_{1} = a+bi $ και $ z_{2} = c + di $
+    \begin{itemize}
+      \item $z_{1}\pm z_{2}=(a\pm c) + (b\pm d)i$
+      \item $z_{1}\cdot z_{2}=(ac-bd)+(ad+bc)i$
+      \item $\frac{z_{1}}{z_{2}}=\frac{ac+bd}{c^2+d^2}+\frac{bc-ad}{c^2+d^2}i$
+    \end{itemize}
+}{
+\twocolumnsides{
+  \section{Πολική μορφή}
+  \[
+    z=r(\cos\theta+i\sin\theta)
+  \]
+  \section{Εκθετική μορφή}
+\[
+  z= re^{i\theta}
+\]
+}{
+  \centering
+  \begin{tikzpicture}[baseline=2.5cm]
+    \draw[-stealth] (0,0) coordinate (O) {} -- (2.2,0) coordinate (x) 
+      node[right] {$\Re$} ;
+    \draw[-stealth] (0,0) -- (0,2.2) node[left] {$\Im$} ;
+    \fill[Col\thechapter] (1.4,1.4) coordinate (p) circle (2pt) node[above] {$z$} ;
+    \draw[Col\thechapter] (0,0)  edge node[pos=0.6,left=3pt] {$r$} (p) ; 
+    \draw pic[fill=Col1!55,"$\textcolor{Col1}{\theta}$", angle eccentricity=1.5]{angle=x--O--p};
+  \end{tikzpicture}
+}
+}
+
+\vspace{\baselineskip}
+
+\twocolumnsides{
+  \section{Θεώρημα De Moivre}
+  \centering
+  \[
+    z^{n}=r^{n}\bigl(\cos (n\theta)+i\sin (n\theta)\bigr)\phantom{\Bigl(},\quad n \in \mathbb{N^{*}}
+    \]
+  }{
+    \section{Ρίζες Μιγαδικού Αριθμού}
+    \centering
+    \[
+      z_{k}=\sqrt[n]{r}\left(\cos\frac{\theta+2k\pi}{n}+i\sin\frac{\theta+2k\pi}{n}
+      \right)
+    \]
+  }
+
+  \vspace{\baselineskip}
+
+  \twocolumnsides{
+    \section{Δυνάμεις της Φανταστικής Μονάδας}
+    \twocolumnsides{
+      \begin{itemize}
+        \item $i^{0}=1$
+        \item $i^{1}=i$
+        \item $i^{2}=-1$
+        \item $i^{3}=i^{2}\cdot i=-i$
+    \end{itemize}}{ 
+    \begin{itemize}
+      \item $i^{4n}=1$
+      \item $i^{4n+1}=i$
+      \item $i^{4n+2}=-1$
+      \item $i^{4n+3}=-i$
+  \end{itemize}}
+}{
+  \section{Ιδιότητες των Δυνάμεων}
+  \twocolumnsides{
+    \begin{itemize}
+      \item $z^{m}\cdot  z^{n}=z^{m+n}$
+      \item $\frac{z^{m}}{z^{n}}=z^{m-n}$
+    \end{itemize}
+  }{
+    \begin{itemize}
+      \item $\left(z^{m}\right)^{n}=z^{m\cdot n}$
+      \item $(z_{1}\cdot z_{2})^{n}=z_{1}^{n}\cdot z_{2}^{n}$
+    \end{itemize}
+  }
+  \vspace{\baselineskip}
+  \centering
+  \section{Ρίζα της Φανταστικής Μονάδας}
+  $ \sqrt{\pm i} = \frac{\sqrt{2}}{2} (1 \pm i) $
+}

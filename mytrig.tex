@@ -1,0 +1,163 @@
+\documentclass[~/Desktop/My_Projects/mini_typologio/main.tex]{subfiles}
+
+\pgfplotsset{
+  myaxis/.style={axis lines=center,axis line style={thick,blue!50,-stealth},tick label
+  style={font=\small,blue!50},xtick=\empty,ytick=\empty,tick style={blue!50}},
+myplot/.style={Col1!75,ultra thick,samples=500,no marks,smooth,},
+  dashed lines/.style={dashed,blue!50,ultra thin},
+}
+
+\begin{document}
+
+\twocolumnsides{
+  \section{Ημίτονο}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-2,ymax=2,
+      xmin=-7,xmax=7,
+      extra x ticks={-6.28318,-4.7123889,-3.14159,-1.5708,1.5708,3.14159,4.7123889,6.28318},
+      extra x tick labels={$-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $\frac{\pi}{2}$,$\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$},
+      domain=-2*pi:2*pi,
+      ]
+      \addplot[myplot] {sin(deg(x))} node[above right,pos=0.65]{$\sin x$} ;
+    \end{axis}
+  \end{tikzpicture}
+  }{
+  \section{Συνημίτονο}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-2,ymax=2,
+      xmin=-7,xmax=7,
+      extra x ticks={-6.28318,-4.7123889,-3.14159,-1.5708,1.5708,3.14159,4.7123889,6.28318},
+      extra x tick labels={$-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $\frac{\pi}{2}$,$\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$},
+      domain=-2*pi:2*pi
+      ]
+      \addplot[myplot] {cos(deg(x))} node[above left,pos=0.95]{$\cos x$} ;
+    \end{axis}
+  \end{tikzpicture}
+}
+
+\vspace{\baselineskip}
+
+\twocolumnsides{
+  \section{Εφαπτομένη}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-6,ymax=6,
+      xmin=-6,xmax=6,
+      extra x ticks={-4.71,-3.14159,-1.5708,0,1.57,3.14,4.71},
+      extra x tick labels={$-\frac{3\pi}{2}$,$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$},
+      domain=-1.8*pi:1.8*pi,
+      ]
+      \addplot [myplot,dashed lines] {tan(deg(x))};
+      \addplot [myplot,restrict y to domain=-10:10] {tan(deg(x))} node
+        [right,pos=0.55,xshift=5pt] {$\tan x$};
+    \end{axis}
+  \end{tikzpicture}
+  }{
+  \section{Συνεφαπτομένη}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-6,ymax=6,
+      xmin=-6,xmax=6,
+      extra x ticks={-4.71,-3.14159,-1.5708,0,1.57,3.14,4.71},
+      extra x tick labels={$-\frac{3\pi}{2}$,$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$},
+      domain=-1.7*pi:1.7*pi
+      ]
+      \addplot [myplot,dashed lines] {cot(deg(x))};
+      \addplot [myplot,restrict y to domain=-10:10] {cot(deg(x))}
+        node [right,pos=0.59,xshift=5pt] {$\cot x$};
+    \end{axis}
+  \end{tikzpicture}
+}
+
+\vspace{\baselineskip}
+
+\chapter{Αντίστροφες Τριγωνομετρικές Συναρτήσεις}
+
+\twocolumnsides{
+  \section{Αντίστροφη Ημιτόνου}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-2,ymax=2,
+      xmin=-2.0,xmax=2.0,
+      extra x ticks={-1,1},
+      extra y ticks={-1.57,1.57},
+      extra y tick labels={$-\pi/2$,$\pi/2$},
+      domain=-1:1,
+      x=1.5cm,
+      y=1.5cm,
+      ]
+      \addplot[myplot] {asin(x)/180*pi} node[right,pos=0.85]{$\arcsin x$} ;
+      \addplot[mark=*,mark size=2pt,Col1!75] coordinates {(1,1.57)} ;
+      \addplot[mark=*,mark size=2pt,Col1!75] coordinates {(-1,-1.57)} ;
+    \end{axis}
+  \end{tikzpicture}
+  }{
+  \section{Αντίστροφη Συνημιτόνου}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-0.5,ymax=3.5,
+      xmin=-2.0,xmax=2.0,
+      extra x ticks={-1,1},
+      extra y ticks={1.57,3.14},
+      extra y tick labels={$\pi/2$,$\pi$},
+      x=1.5cm,
+      y=1.5cm,
+      domain=-1:1,
+      ]
+      \addplot[myplot] {acos(x)/180*pi} node[above right,pos=0.85]{$\arccos x$} ;
+      \addplot[mark=*,Col1!75] coordinates {(1,0)} ;
+      \addplot[mark=*,Col1!75] coordinates {(-1,3.14)} ;
+    \end{axis}
+  \end{tikzpicture}
+}
+
+\vspace{\baselineskip}
+
+\twocolumnsides{
+  \section{Αντίστροφη Εφαπτομένης}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-2,ymax=2,
+      xmin=-3.8,xmax=3.8,
+      extra y ticks={-1.57,1.57},
+      extra y tick labels={\raisebox{-18pt}{$-\pi/2$},\raisebox{-18pt}{$\pi/2$}},
+      x=1cm,
+      y=1.2cm,
+      domain=-3.5:3.5,
+      ]
+      \addplot[myplot] {rad(atan(x))} node[below,pos=0.85,xshift=5pt]
+        {$\arctan x$} ;
+      \addplot[dashed lines] {1.57}  ;
+      \addplot[dashed lines] {-1.57}  ;
+    \end{axis}
+  \end{tikzpicture}
+  }{
+  \section{Αντίστροφη Συνεφαπτομένης}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-0.5,ymax=3.5,
+      xmin=-3.8,xmax=3.8,
+      extra y ticks={-1.57,1.57,3.14},
+      extra y tick labels={$-\pi/2$,$\pi/2$,\raisebox{-16pt}{$\pi$}},
+      x=1cm,
+      y=1.2cm,
+      domain=-3.5:3.5,
+      ]
+      \addplot[myplot] {pi/2-rad(atan(x))} node[above,xshift=20pt,pos=0.85]{$\arccot x$} ;
+      \addplot[dashed lines] {3.14}  ;
+    \end{axis}
+  \end{tikzpicture}
+}
+
+\end{document}
+

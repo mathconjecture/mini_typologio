@@ -1,0 +1,127 @@
+\documentclass[~/Desktop/My_Projects/mini_typologio/main.tex]{subfiles}
+
+\section{Παράγωγοι Βασικών Συναρτήσεων}
+
+\renewcommand{\arraystretch}{1.5}
+\twocolumnsides{
+  \begin{itemize}
+    \item $ \dv{x}(c) = 0, \quad c \in \mathbb{R} $ 
+    \item $ \dv{x}(x) = 1 $ 
+    \item $ \dv{x}(x^{a}) = a x^{a-1},\quad a \in \mathbb{R}\setminus \{-1\} $ 
+    \item $ \dv{x}(\frac{1}{x}) = - \frac{1}{x^{2}} $ 
+    \item $ \dv{x}(\frac{1}{x^{2}}) = - \frac{2}{x^{3}} $ 
+    \item $ \dv{x}(a^{x}) = a^{x}\cdot \ln{a} $ 
+    \item $ \dv{x}(e^{x}) = e^{x} $ 
+    \item $ \dv{x}(\ln{x}) = \frac{1}{x} $ 
+    \item $ \dv{x}(\sqrt[n]{x^{m}}) = \dv{x}(x^{\frac{m}{n}}) = 
+      \frac{m}{n} x^{\frac{m}{n} -1} $ 
+    \item $ \dv{x}(\sqrt{x}) = \frac{1}{2 \sqrt{x}} $ 
+  \end{itemize}
+    % \begin{tabular}{l}
+    %     $ \dv{x}(c) = 0, \quad c \in \mathbb{R} $ \\
+    %     $ \dv{x}(x) = 1 $ \\
+    %     $ \dv{x}(x^{a}) = a x^{a-1},\quad a \in \mathbb{R}\setminus \{-1\} $ \\
+    %     $ \dv{x}(\frac{1}{x}) = - \frac{1}{x^{2}} $ \\
+    %     $ \dv{x}(\frac{1}{x^{2}}) = - \frac{2}{x^{3}} $ \\
+    %     $ \dv{x}(a^{x}) = a^{x}\cdot \ln{a} $ \\
+    %     $ \dv{x}(e^{x}) = e^{x} $ \\
+    %     $ \dv{x}(\ln{x}) = \frac{1}{x} $ \\
+    %     $ \dv{x}(\sqrt[n]{x^{m}}) = \dv{x}(x^{\frac{m}{n}}) = \frac{m}{n}
+    %     x^{\frac{m}{n} -1} $ \\
+    %     $ \dv{x}(\sqrt{x}) = \frac{1}{2 \sqrt{x}} $ \\
+    % \end{tabular}
+    }{
+      \begin{itemize}
+        \item $ \dv{x}(\sin{x}) = \cos{x} $ 
+        \item $ \dv{x}(\cos{x}) = - \sin{x} $ 
+        \item $ \dv{x}(\tan{x}) = \frac{1}{\cos^{2}{x}}$ 
+        \item $ \dv{x}(\cot{x}) = - \frac{1}{\sin^{2}{x}}  $ 
+        \item $ \dv{x}(\arctan{x}) = \frac{1}{1 + x^{2}} $ 
+        \item $ \dv{x}(\arccot{x}) = \frac{-1}{1 + x^{2}} $ 
+        \item $ \dv{x}(\arcsin{x}) = \frac{1}{\sqrt{1 - x^{2}}} $ 
+        \item $ \dv{x}(\arccos{x}) = \frac{-1}{\sqrt{1 - x^{2}}} $ 
+        \item $ \dv{x}(\sinh{x}) = \cosh{x} $ \\
+        \item $ \dv{x}(\cosh{x}) = \sinh{x} $
+      \end{itemize}
+    % \begin{tabular}{l}
+    %     $ \dv{x}(\sin{x}) = \cos{x} $ \\
+    %     $ \dv{x}(\cos{x}) = - \sin{x} $ \\
+    %     $ \dv{x}(\tan{x}) = \frac{1}{\cos^{2}{x}}$ \\
+    %     $ \dv{x}(\cot{x}) = - \frac{1}{\sin^{2}{x}}  $ \\
+    %     $ \dv{x}(\arctan{x}) = \frac{1}{1 + x^{2}} $ \\
+    %     $ \dv{x}(\arccot{x}) = \frac{-1}{1 + x^{2}} $ \\
+    %     $ \dv{x}(\arcsin{x}) = \frac{1}{\sqrt{1 - x^{2}}} $ \\
+    %     $ \dv{x}(\arccos{x}) = \frac{-1}{\sqrt{1 - x^{2}}} $ \\
+    %     $ \dv{x}(\sinh{x}) = \cosh{x} $ \\
+    %     $ \dv{x}(\cosh{x}) = \sinh{x} $
+    % \end{tabular}
+}
+
+\vspace{0.5\baselineskip}
+
+\twocolumnsidesll{
+\section{Κανόνες Παραγώγισης}
+\begin{itemize}
+        \item $ \dv{x}(a f(x)) = a \dv{x}(f(x)) $ \\
+        \item $ \dv{x}(f(x)+g(x)) = \dv{x}(f(x)) + \dv{x}(g(x)) $ \\ 
+        \item $ \dv{x}(f(x)\cdot g(x)) = \dv{x}(f(x)) \cdot g(x) 
+            + f(x) \cdot \dv{x}(g(x)) $ \\
+        \item $ \dv{x}(\frac{f(x)}{g(x)}) = \frac{\dv{x}(f(x)) \cdot g(x) - f(x) 
+            \cdot \dv{x}(g(x))}{g^{2}(x)} $ \\
+        \item $ \dv{x}(f(g(x))) = \dv{g(x)}(f(g(x)))\cdot \dv{x}(g(x)) $
+\end{itemize}
+}{
+\section{Εξίσωση Εφαπτόμενης ευθείας}
+\centering
+\begin{tikzpicture}[tangent/.style=
+    {decoration=
+        {markings,
+            mark=at position #1 with
+            {\coordinate (tangent point-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,0pt);
+    \coordinate (tangent unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (1,0pt);
+    \coordinate (tangent orthogonal unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,1);
+    }
+},
+postaction=decorate},
+use tangent/.style={shift=(tangent point-#1),
+x=(tangent unit vector-#1),
+y=(tangent orthogonal unit vector-#1)},
+use tangent/.default=1]
+
+\draw[stealth-stealth,blue!75] (0,4) -- (0,0) node (O) {} -- (4,0) ;
+\draw[very thick,tangent=0.6,blue!50] (0.8,0.8) to[out=90, in=180] (3.5,3.5) node[below]{$f(x)$} ;
+\filldraw[use tangent] (0,0) coordinate (p);
+\draw[ultra thick,use tangent,Col1!75] (-2,0) -- (2,0);
+\draw[dashed] (O|-p) node[left]{$f(x_{0})$} -- (p) -- (O-|p) node[below]{$x_{0}$};
+\node[left,Col1]  at (4,4) {$\varepsilon$};
+\draw (p) circle (1.5pt) ;
+\end{tikzpicture}
+\begin{empheq}[box=\mathboxr]{equation*}
+{ \bm{\varepsilon:} y - f(x_{0}) = f'(x_{0}) (x-x_{0}) }
+  \end{empheq}
+% \[
+%     \boxed{\bm{\varepsilon:} y - f(x_{0}) = f'(x_{0}) (x-x_{0})}
+%  \]
+ }
+
+ \vspace{0.5\baselineskip}
+
+ \section{Τύπος Taylor}
+ \[
+     f(x) = f(a) + \frac{f'(a)}{1!} (x-a) + \frac{f''(a)}{2!} (x-a)^{2} + \cdots + 
+     \frac{f^{(n)}(a)}{n!} (x-a)^{n} + R_{n}(x)
+  \] 
+  
+  \section{Τύπος Υπολοίπου κατά Lagrange}
+  \[
+      R_{n}(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!} (x-a)^{n+1},
+      \quad \text{όπου} \; \xi \in (a,x)
+      \; \text{ή} \; \xi \in (x,a)
+   \] 
+
+  \section{Τύπος Maclaurin}
+  \[
+      f(x) = f(0) + \frac{f'(0)}{1!} x + \frac{f''(0)}{2!} x^{2} + \cdots + 
+      \frac{f^{(n)}(0)}{n!} x^{n} + R_{n}(x)
+   \] 
+

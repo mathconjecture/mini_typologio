@@ -1,0 +1,148 @@
+\documentclass[~/Desktop/My_Projects/mini_typologio/main.tex]{subfiles}
+
+\section{Ολοκληρώματα Βασικών Συναρτήσεων}
+
+% \renewcommand{\arraystretch}{1.5}
+\twocolumnsides{
+  \begin{itemize}
+    \item $ \int 0 \,{dx} = c, \quad c \in \mathbb{R} $ 
+    \item$ \int \,{dx} = x + c $ 
+      $ \int x^{n} \,{dx} = \frac{x^{n+1}}{n+1} + c, \quad n \in \mathbb{N} $ 
+    \item $ \int \frac{1}{x^{n}}\,{dx} = \int x^{-n}\,{dx} 
+      = \frac{x^{-n+1}}{-n+1}+c$ 
+    \item $ \int \frac{1}{x} \,{dx} = \ln{\abs{x}} + c$ 
+    \item $ \int \frac{1}{x^{2}} \,{dx} = - \frac{1}{x} + c $ 
+    \item $ \int a^{x} \,{dx} = \frac{a^{x}}{\ln{a}} + c $ 
+    \item $ \int e^{x} \,{dx} = e^{x} + c $ 
+    \item $ \int \sqrt[n]{x^{m}} \,{dx} = \int x^{\frac{m}{n}} \,{dx} = 
+      \frac{x^{\frac{m}{n} + 1}}{\frac{m}{n} + 1} + c $ 
+    \item $ \int \sqrt{x} \,{dx} = \int x^{\frac{1}{2}} \,{dx} = \frac{2}{3} 
+      x^{\frac{3}{2}} + c $
+  \end{itemize}
+    % \begin{tabular}{l}
+    %     $ \int 0 \,{dx} = c, \quad c \in \mathbb{R} $ \\
+    %     $ \int \,{dx} = x + c $ \\
+    %     $ \int x^{n} \,{dx} = \frac{x^{n+1}}{n+1} + c, \quad n 
+    %     \in \mathbb{N} $ \\
+    %     $ \int \frac{1}{x^{n}}\,{dx} = \int x^{-n}\,{dx} 
+    %     = \frac{x^{-n+1}}{-n+1}+c$ \\
+    %     $ \int \frac{1}{x} \,{dx} = \ln{\abs{x}} + c$ \\
+    %     $ \int \frac{1}{x^{2}} \,{dx} = - \frac{1}{x} + c $ \\
+    %     $ \int a^{x} \,{dx} = \frac{a^{x}}{\ln{a}} + c $ \\
+    %     $ \int e^{x} \,{dx} = e^{x} + c $ \\
+    %     $ \int \sqrt[n]{x^{m}} \,{dx} = \int x^{\frac{m}{n}} \,{dx} = 
+    %     \frac{x^{\frac{m}{n} + 1}}{\frac{m}{n} + 1} + c $ \\
+    %     $ \int \sqrt{x} \,{dx} = \int x^{\frac{1}{2}} \,{dx} = \frac{2}{3} 
+    %     x^{\frac{3}{2}} + c $
+    % \end{tabular}
+    }{
+      \begin{itemize}
+        \item $ \int \sin{x} \,{dx} = - \cos{x} + c $ 
+        \item $ \int \cos{x} \,{dx} = \sin{x} + c $ 
+        \item $ \int  \frac{1}{\cos^{2}{x}} \,{dx} = \tan{x} + c $ 
+        \item $ \int \frac{1}{\sin^{2}{x}} \,{dx} = - \cot{x} + c $ 
+        \item $ \int \frac{1}{1 + x^{2}} \,{dx} = \arctan{x} + c $ 
+        \item $ \int \frac{-1}{1 + x^{2}} \,{dx} = \arccot{x} + c $ 
+        \item $ \int \frac{1}{\sqrt{1 - x^{2}}} \,{dx} = \arcsin{x} + c $ 
+        \item $ \int \frac{-1}{\sqrt{1 - x^{2}}} \,{dx} = \arccos{x} + c $ 
+        \item $ \int \sinh{x} \,{dx} = \cosh{x} + c $ 
+        \item $ \int \cosh{x} \,{dx} = \sinh{x} + c $
+      \end{itemize}
+    % \begin{tabular}{l}
+    %     $ \int \sin{x} \,{dx} = - \cos{x} + c $ \\
+    %     $ \int \cos{x} \,{dx} = \sin{x} + c $ \\
+    %     $ \int  \frac{1}{\cos^{2}{x}} \,{dx} = \tan{x} + c $ \\
+    %     $ \int \frac{1}{\sin^{2}{x}} \,{dx} = - \cot{x} + c $ \\
+    %     $ \int \frac{1}{1 + x^{2}} \,{dx} = \arctan{x} + c $ \\
+    %     $ \int \frac{-1}{1 + x^{2}} \,{dx} = \arccot{x} + c $ \\
+    %     $ \int \frac{1}{\sqrt{1 - x^{2}}} \,{dx} = \arcsin{x} + c $ \\
+    %     $ \int \frac{-1}{\sqrt{1 - x^{2}}} \,{dx} = \arccos{x} + c $ \\
+    %     $ \int \sinh{x} \,{dx} = \cosh{x} + c $ \\
+    %     $ \int \cosh{x} \,{dx} = \sinh{x} + c $
+    % \end{tabular}
+}
+
+\vspace{\baselineskip}
+
+\twocolumnsides{
+\section{Ολοκλήρωση κατά Παράγοντες}
+\centering
+\[
+    \int f'(x)\cdot g(x) \,{dx} = f(x)\cdot g(x) - \int f(x)\cdot g'(x) \,{dx} 
+\] 
+
+\section{Κατά Παράγοντες (Ειδική Περίπτωση)}
+\centering
+\[
+  \int f'(x)\cdot f(x) \,{dx} = \frac{f^{2}(x)}{2} + c
+\] 
+
+\section{Ολοκλήρωση με Αντικατάσταση}
+\[
+    \int f(u) \,{du} = F(u)  \Rightarrow \!\!\! \int f(g(x))\cdot g'(x) \,{dx} =
+    F(g(x)) 
+\] 
+}{%
+\section{Ορισμένο Ολοκλήρωμα}
+\centering
+\begin{tikzpicture}[scale=0.8]
+\draw[thick,stealth-stealth,blue!50] (0,3.5) -- (0,0) node (O) {} -- (4.2,0) ;
+\draw[very thick,Col1,name path=curve] (0.7,2) node (A){} .. controls (2.3,4) 
+    and (2.7,1) ..  (3.6,2.2) node[above,black] (B){$f(x)$} ;
+\draw[dashed] (A) -- (A|-O) node[below]{$a$}  (B) -- (B|-O) node[below]{$b$};
+\path[name path=xaxis] (A|-O) -- (B|-O);
+\tikzfillbetween[of = curve and xaxis,on layer=background]{blue!10};
+\draw (2,1.5) node (E) {$E$};
+\end{tikzpicture}
+% \begin{equation*}
+%     \boxed{E = \int _{a}^{b} f(x) \,{dx} = \bigl[F(x)\bigr]_{a}^{b} = F(b) 
+%     - F(a)}
+% \end{equation*}
+  \begin{empheq}[box=\mathboxg]{equation*}
+{ E = \int _{a}^{b} f(x) \,{dx} = \bigl[F(x)\bigr]_{a}^{b} = F(b) 
+    - F(a) }
+  \end{empheq} 
+}
+
+\vspace{\baselineskip}
+
+ \section{Γενικευμένο Ολοκλήρωμα}
+ \twocolumnsides{%
+     \subsection{I είδους}
+     \begin{itemize}
+       \item $ \int _{a}^{+\infty} f(x) \,{dx} = \bigl[ F(x) \bigr]_{a}^{+\infty} 
+         = \lim_{x \to +\infty} F(x) - F(a) $ 
+       \item $ \int _{-\infty}^{b} f(x) \,{dx} = \bigl[ F(x) \bigr]_{-\infty}^{b} = 
+         F(b) - \lim_{x\to -\infty} F(x) $
+       \item $ \int _{-\infty}^{+\infty} f(x) \,{dx} = \int _{-\infty}^{0} f(x) \,{dx} + 
+         \int _{0}^{+\infty} f(x)  \,{dx} $
+     \end{itemize}
+% \begin{align*}
+%     \int _{a}^{+\infty} f(x) \,{dx} &= \bigl[ F(x) \bigr]_{a}^{+\infty} 
+%     = \lim_{x \to +\infty} F(x) - F(a) \\
+%     \int _{-\infty}^{b} f(x) \,{dx} &= \bigl[ F(x) \bigr]_{-\infty}^{b} = 
+%     F(b) - \lim_{x\to -\infty} F(x) \\
+%     \int _{-\infty}^{+\infty} f(x) \,{dx} &= \int _{-\infty}^{0} f(x) \,{dx} + 
+%     \int _{0}^{+\infty} f(x)  \,{dx} 
+%  \end{align*} 
+ }{%
+     \subsection{II είδους}
+     \begin{itemize}
+       \item $ \int _{a}^{b^{-}} f(x) \,{dx} = \bigl[ F(x) \bigr]_{a}^{b^{-}} = 
+         \lim_{x \to b^{-}} F(x) - F(a)  $
+       \item $ \int _{a^{+}}^{b} f(x) \,{dx} = \bigl[ F(x) \bigr]_{a^{+}}^{b} = 
+         F(b) - \lim_{x\to a^{+}} F(x) $
+       \item $ \int _{a^{+}}^{b^{-}} f(x) \,{dx} = \int _{a^{+}}^{c} f(x) \,{dx} + 
+         \int _{c}^{b^{-}} f(x) \,{dx} $
+     \end{itemize}
+     % \begin{align*}
+     %     \int _{a}^{b^{-}} f(x) \,{dx} &= \bigl[ F(x) \bigr]_{a}^{b^{-}} = 
+     %     \lim_{x \to b^{-}} F(x) - F(a)  \\
+     %     \int _{a^{+}}^{b} f(x) \,{dx} &= \bigl[ F(x) \bigr]_{a^{+}}^{b} = 
+     % F(b) - \lim_{x\to a^{+}} F(x) \\
+     %     \int _{a^{+}}^{b^{-}} f(x) \,{dx} &= \int _{a^{+}}^{c} f(x) \,{dx} + 
+     %     \int _{c}^{b^{-}} f(x) \,{dx}
+     %  \end{align*} 
+ }
+
+

@@ -1,0 +1,141 @@
+\documentclass[~/Desktop/My_Projects/mini_typologio/main.tex]{subfiles}
+
+
+\usetikzlibrary{shadings,patterns,arrows.meta,angles,quotes,shapes,
+decorations.pathmorphing, decorations.shapes,decorations.text}
+
+\tikzset{vangelis/.style = {ultra thick,magenta,dashed}, mystyle/.style={line width=3pt,blue!55,double,rounded corners}}
+
+
+% \documentclass[~/Desktop/testing/main.tex]{subfiles}
+
+
+\threecolumnside{
+    \section{Απόλυτη τιμή}
+\begin{tikzpicture}
+    \draw[-stealth,blue!50] (-2,0) -- (2,0) node[right] {};
+    \draw[-stealth,blue!50] (0,-2) -- (0,2) node[above] {};
+    \draw[domain=-1.7:1.7,smooth,variable=\x,Col1!75,very thick,yshift=1.5pt] 
+        plot ({\x},abs{\x}) node[left=3cm,yshift=-20pt,xshift=3pt]{\small $y=\abs{x}$};
+    \draw[domain=-1.72:1.72,smooth,variable=\x,Col2!75,very thick,yshift=-1.5pt] 
+        plot ({\x},{\x})
+        node[below left=3.9cm,xshift=-8pt]{\small $y=x$};
+\end{tikzpicture}
+}{
+    \section{Άρτια Πολυωνυμική}
+\begin{tikzpicture}
+    \draw[-stealth,blue!50] (-2,0) -- (2,0) node[right] {};
+    \draw[-stealth,blue!50] (0,-2) -- (0,2) node[above] {};
+    \draw[domain=-1.4:1.4,smooth,variable=\x,Col1!75,very thick] plot ({\x},{\x*\x})
+        node[right,left=2.5cm,yshift=-20pt,xshift=-2pt]{\small $y=x^{2}$};
+\end{tikzpicture}
+}{
+    \section{Περιττή Πολυωνυμική}
+\begin{tikzpicture}
+    \draw[-stealth,blue!50] (-2,0) -- (2,0) node[right] {};
+    \draw[-stealth,blue!50] (0,-2) -- (0,2) node[above] {};
+    \draw[domain=-1.25:1.25,smooth,variable=\x,Col1!75,very thick] 
+        plot ({\x},{\x*\x*\x}) node[below right]{\small $y=x^{3}$};
+\end{tikzpicture}
+}
+
+\vspace{\baselineskip}
+
+\threecolumnside{
+    \section{Άρτια Ρίζα}
+    \begin{tikzpicture}
+      \draw[-stealth,blue!50] (-2,0) -- (2,0) node[right] {};
+      \draw[-stealth,blue!50] (0,-2) -- (0,2) node[above] {};
+      \draw[domain=0:2,smooth,variable=\x,Col1!75,very thick] 
+        plot (\x,{sqrt(\x)}) node[above,xshift=-5pt]{\small $y=\sqrt{x}$};
+      \node at (-1.65,1.2)[Col2,align=center,draw] 
+        {\smaller$ \sqrt{a} = x \Leftrightarrow x^{2}=a $ \\ \smaller$ \sqrt{a\cdot
+        b} = \sqrt{a} \cdot \sqrt{b}$ \\ \smaller$ \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b} }$};
+    \end{tikzpicture}
+}{
+    \section{Περιττή Ρίζα}
+\begin{tikzpicture}
+    \draw[-stealth,blue!50] (-2,0) -- (2,0) node[right] {};
+    \draw[-stealth,blue!50] (0,-2) -- (0,2) node[above] {};
+    \draw[domain=-2:0,smooth,variable=\x,Col1!75,very thick] plot (\x,{-sqrt(abs(\x))});
+    \draw[domain=0:2,smooth,variable=\x,Col1!75,very thick] plot (\x,{sqrt(\x)})
+        node[yshift=10pt,xshift=5pt]{\small $y=\sqrt[3]{x}$};
+\end{tikzpicture}
+}{
+    \section{Υπερβολή}
+\begin{tikzpicture}[scale=0.8]
+    \draw[-stealth,blue!50] (-2.5,0) -- (2.5,0) node[right] {};
+    \draw[-stealth,blue!50] (0,-2.5) -- (0,2.5) node[above] {};
+    \draw[domain=0.4:2.5,smooth,variable=\x,Col1!75,very thick,xshift=3pt,yshift=3pt] 
+        plot (\x,{1/(\x)}) node[above left,xshift=7pt,yshift=10pt]{\small $y=\frac{1}{x}$};
+    \draw[domain=-0.4:-2.5,smooth,variable=\x,Col1!75] plot (\x,{1/(\x)});
+    \draw[domain=0.4:2.5,smooth,variable=\x,Col2!75,very thick] plot (\x,{1/(\x)})
+        node[above left=2cm,xshift=-40pt,yshift=-1.0cm]{\small $y=\frac{1}{x^{2}}$};
+    \draw[domain=-0.4:-2.5,smooth,variable=\x,Col2!75,very thick] plot (\x,{-1/(\x)});
+\end{tikzpicture}
+}
+
+\vspace{\baselineskip}
+
+
+\twocolumnsides{
+    \section{Αύξουσα Εκθετική}
+    \centering
+\begin{tikzpicture}[scale=0.8]
+    \draw[-stealth,blue!50] (-3.2,0) -- (3.8,0) node[right] {};
+    \draw[-stealth,blue!50] (0,-1) -- (0,4.3) node[above] {};
+    \draw[domain=-3:1.4,smooth,variable=\x,Col1!75,very thick] plot ({\x},{exp{\x}})
+    node[below right,xshift=-10pt]{\begin{tabular}{c} \small $y=a^{x}$ \\ 
+    \small $ a>1 $ \end{tabular}};
+    \fill[Col1] (0,1) circle (2pt) node[left=2pt] {1} ;
+    \node[Col2,draw,align=center] at (-2,3) {$ (a^{x})^{y} = a^{x\cdot y} $\\ 
+        $a^{x}\cdot a^{y} = a^{x+y}$ \\[2pt] $\frac{a^{x}}{a^{y}} = a^{x-y} $ } ;
+\end{tikzpicture}
+}{
+    \section{Φθίνουσα Εκθετική}
+    \centering
+\begin{tikzpicture}[scale=0.8]
+    \draw[-stealth,blue!50] (-3.2,0) -- (3.8,0) node[right] {};
+    \draw[-stealth,blue!50] (0,-1) -- (0,4.3) node[above] {};
+    \draw[domain=3:-1.4,smooth,variable=\x,Col1!75,very thick] plot ({\x},{exp{-\x}})
+    node[below left,xshift=15pt,yshift=-10pt]{\begin{tabular}{c} \small $y=a^{x}$ \\ 
+    \small $ 0<a<1 $ \end{tabular}};
+    \fill[Col1] (0,1) circle (2pt) node[left=2pt] {1} ;
+\end{tikzpicture}
+}
+
+\vspace{\baselineskip}
+
+\twocolumnsides{
+    \section{Αύξουσα Λογαριθμική}
+    \centering
+    \begin{tikzpicture}
+      \draw[-stealth,blue!50] (-3,0) -- (3,0) node[right] {};
+      \draw[-stealth,blue!50] (0,-2.5) -- (0,2.5) node[above] {};
+      \draw[domain=0.2:3,smooth,variable=\x,Col1!75,very thick] plot (\x,{log2(\x)})
+        node[left,xshift=-5pt]{\begin{tabular}{c}
+        \small $y =\log_{a}{x}$ \\ \small $a >1$ \end{tabular}};
+      \node[Col2,align=center,draw] at (-1.85,1.3) 
+        {\smaller $ \ln{1} = 0 \quad \ln{\mathrm{e}} = 1 $ \\ 
+          \smaller$\ln{(x\cdot y) = \ln{x}+\ln{y}}$ \\[2pt] 
+          \smaller $\ln{\Bigl(\frac{x}{y}\Bigr)} = \ln{x} - \ln{y}$ \\[2pt] 
+         \smaller $ \ln{x} ^{a} = a \ln{x} $} ; 
+      \node[Col1!75] at (2.5,0.6) {\small $y= \ln{x}$} ;
+      \fill[Col1] (1,0) circle (1.6pt) node[below=2pt] {1} ;
+    \end{tikzpicture}
+}{
+\section{Φθίνουσα Λογαριθμική}
+    \centering
+\begin{tikzpicture}
+    \draw[-stealth,blue!50] (-3,0) -- (3,0) node[right] {};
+    \draw[-stealth,blue!50] (0,-2.5) -- (0,2.5) node[above] {};
+    \draw[domain=0.2:3,smooth,variable=\x,Col1!75,very thick] plot (\x,{-log2(\x)})
+        node[above=1.6cm,xshift=-30pt]{\begin{tabular}{c} \small $y =\log_{a}{x}$ \\ \small $0<a<1$ \end{tabular}};
+    \fill[Col1] (1,0) circle (1.6pt) node[below=2pt] {1} ;
+\end{tikzpicture}
+}
+
+
+
+
+

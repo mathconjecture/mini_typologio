@@ -1,0 +1,182 @@
+\documentclass[~/Desktop/My_Projects/mini_typologio/main.tex]{subfiles}
+
+\pgfplotsset{
+  myaxis/.style={axis lines=center,axis line style={thick,blue!50,-stealth},tick label
+  style={font=\small,blue!50},xtick=\empty,ytick=\empty,tick style={blue!50}},
+myplot/.style={Col1!75,ultra thick,samples=500,no marks,smooth,},
+  dashed lines/.style={dashed,blue!50,ultra thin},
+}
+\tikzset{dashed lines/.style={dashed,blue!50,ultra thin}}
+
+
+\pgfmathdeclarefunction{asinh}{1}{%
+  \pgfmathparse{ln(#1 + sqrt((#1)^2 + 1))}%
+}
+\pgfmathdeclarefunction{acosh}{1}{%
+  \pgfmathparse{ln(#1 + sqrt((#1)^2 - 1))}%
+}
+
+\pgfkeys{/pgf/declare function={atanh(\x) = 0.5*(ln((1+\x)/(1-\x)));}}
+\pgfkeys{/pgf/declare function={acoth(\x) = 0.5*(ln((\x+1)/(\x-1)));}}
+
+\begin{document}
+
+\twocolumnsides{
+  \section{Υπερβολικό Ημίτονο}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-2,ymax=2,
+      xmin=-2,xmax=2,
+      extra x ticks={-1,1},
+      extra x tick labels={$-1$,$1$},
+      extra y ticks={-1,1},
+      extra y tick labels={$-1$,$1$},
+      domain=-2:2,
+      ]
+      \addplot[myplot] {sinh(\x)} node[right,pos=0.65]{$\sinh x$} ;
+    \end{axis}
+  \end{tikzpicture}
+}
+{
+  \section{Υπερβολικό Συνημίτονο}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-0.5,ymax=2,
+      xmin=-2,xmax=2,
+      extra x ticks={-1,1},
+      extra x tick labels={$-1$,$1$},
+      extra y ticks={-1,1},
+      extra y tick labels={$-1$,$1$},
+      yticklabel style={anchor=north east},
+      domain=-2:2,
+      ]
+      \addplot[myplot] {cosh(\x)} node[right,pos=0.65]{$\cosh x$} ;
+    \end{axis}
+  \end{tikzpicture}
+}
+
+\vspace{\baselineskip}
+
+\twocolumnsides{
+  \section{Υπερβολική Εφαπτομένη}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-1.5,ymax=1.5,
+      xmin=-2,xmax=2,
+      extra x ticks={-1,1},
+      extra x tick labels={$-1$,$1$},
+      extra y ticks={-1,1},
+      extra y tick labels={$-1$,$1$},
+      xticklabel style={anchor=north},
+      yticklabel style={anchor=south east},
+      domain=-2.5:2.5,
+      ]
+      \addplot[myplot] {tanh(\x)} node[right,pos=0.65]{$\tanh x$} ;
+      \addplot[myplot,dashed lines] {1}  ;
+      \addplot[myplot,dashed lines] {-1}  ;
+    \end{axis}
+  \end{tikzpicture}
+  }
+{
+  \section{Υπερβολική Συνεφαπτομένη}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-4,ymax=4,
+      xmin=-3,xmax=3,
+      % extra x ticks={-1,1},
+      % extra x tick labels={$-1$,$1$},
+      extra y ticks={-1,1},
+      extra y tick labels={$-1$,$1$},
+      ticklabel style={anchor=south east},
+      domain=-4:4,
+      ]%
+      \addplot[myplot,restrict y to domain=-4:4] {1/tanh(\x)} 
+        node[right,pos=0.65]{$\coth x$} ;
+      \addplot[myplot,dashed lines] {1}  ;
+      \addplot[myplot,dashed lines] {-1}  ;
+    \end{axis}
+  \end{tikzpicture}
+  }
+
+\vspace{\baselineskip}
+
+\chapter{Αντίστροφες Υπερβολικές Συναρτήσεις}
+
+\twocolumnsides{
+  \section{Αντίστροφη Υπερβολικού Ημιτόνου}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-2,ymax=2,
+      xmin=-2,xmax=2,
+      extra x ticks={-1,1},
+      extra x tick labels={$-1$,$1$},
+      extra y ticks={-1,1},
+      extra y tick labels={$-1$,$1$},
+      domain=-4:4,
+      ]
+      \addplot[myplot] {asinh(\x)} node[right,pos=0.65]{$\asinh x$} ;
+    \end{axis}
+  \end{tikzpicture}
+  }{
+  \section{Αντίστροφη Υπερβολικού Συνημιτόνου}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-0.5,ymax=3,
+      xmin=-0.5,xmax=4,
+      extra x ticks={1},
+      extra x tick labels={$1$},
+      domain=1:5,
+      ]
+      \addplot[myplot] {acosh(\x)} node[below right,pos=0.45]{$\acosh x$} ;
+    \end{axis}
+  \end{tikzpicture}
+}
+
+\vspace{\baselineskip}
+
+\twocolumnsides{
+  \section{Αντίστροφη Υπερβολικής Εφαπτομένης}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-3,ymax=3,
+      xmin=-2,xmax=2,
+      extra x ticks={-1,1},
+      extra x tick labels={$-1$,$1$},
+      ticklabel style={anchor=north east},
+      % domain=-0.99:0.99,
+      domain=-1:1,
+      ]
+      \addplot[myplot] {atanh(\x)} node[right,pos=0.60]{$\atanh x$} ;
+      \draw[dashed lines] (axis cs:1,-3) -- (axis cs:1,3);
+      \draw[dashed lines] (axis cs:-1,-3) -- (axis cs:-1,3);
+    \end{axis}
+  \end{tikzpicture}
+  }{
+  \section{Αντίστροφη Υπερβολικής Συνεφαπτομένης}
+  \centering
+  \begin{tikzpicture}[scale=0.85]
+    \begin{axis}[myaxis,
+      ymin=-4,ymax=4,
+      xmin=-3,xmax=3,
+      extra x ticks={-1,1},
+      extra x tick labels={$-1$,$1$},
+      ticklabel style={anchor=north west},
+      domain=-4.5:4.5
+      ]
+      \addplot[myplot,restrict y to domain=-4:4] {acoth(\x)} 
+        node[above right,pos=0.65]{$\acoth x$} ;
+      \draw[dashed lines] (axis cs:1,-4) -- (axis cs:1,4);
+      \draw[dashed lines] (axis cs:-1,-4) -- (axis cs:-1,4);
+    \end{axis}
+  \end{tikzpicture}
+}
+
+
+\end{document}
